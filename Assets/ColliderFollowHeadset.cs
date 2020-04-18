@@ -11,7 +11,7 @@ using UnityEngine;
 public class ColliderFollowHeadset : MonoBehaviour
 {
     private CapsuleCollider cc;
-    public Transform camera;
+    public Transform cameraVR;
 
      void Start()
     {
@@ -20,7 +20,7 @@ public class ColliderFollowHeadset : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 newCenter = transform.InverseTransformVector(camera.position - transform.position);
+        Vector3 newCenter = transform.InverseTransformVector(cameraVR.position - transform.position);
         cc.center = new Vector3(newCenter.x, cc.center.y, newCenter.z);
     }
 
