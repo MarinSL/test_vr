@@ -17,11 +17,6 @@ namespace Valve.VR.InteractionSystem
 
         public FingerColliders fingerColliders;
 
-        private void OnCollisionStay(Collision collision)
-        {
-            Debug.Log(gameObject.name + " c: " + collision.gameObject.name);
-        }
-
         [System.Serializable]
         public class FingerColliders
         {
