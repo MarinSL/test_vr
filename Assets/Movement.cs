@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // cc = GetComponent<CharacterController>();
+        cc = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         
     }
@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         Vector3 direction = Player.instance.hmdTransform.TransformDirection(new Vector3(input.axis.x, 0, input.axis.y));
-        //cc.Move(speed * speedMultiplyer.axis * Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up));
+        cc.Move(speed * speedMultiplyer.axis * Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up));
         
         rb.MovePosition(transform.position + (speed * speedMultiplyer.axis * Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up)));
     }
