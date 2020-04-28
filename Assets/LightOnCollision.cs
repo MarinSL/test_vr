@@ -2,36 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-
 public class LightOnCollision : MonoBehaviour
 {
-    AudioSource audioSource;
-    bool triggered = false;
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("MainCamera")) && !triggered)
-        {
-            StartCoroutine(playSound());
-            triggered = true;
-        }
-    }
-
-    IEnumerator playSound()
-    {
-        audioSource.PlayOneShot(audioSource.clip);
-        yield return new WaitForSeconds(audioSource.clip.length);
-        Destroy(gameObject);
-    }
-
-    public bool isTriggered()
-    {
-        return triggered;
+        Debug.Log("trigger " + other.gameObject.tag);
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("MainCamera"))
+            Destroy(gameObject);
     }
 }
