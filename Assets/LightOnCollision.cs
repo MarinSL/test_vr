@@ -28,6 +28,7 @@ public class LightOnCollision : MonoBehaviour
         audioSource.PlayOneShot(audioSource.clip, 0.3f);
         yield return new WaitForSeconds(audioSource.clip.length);
         Destroy(gameObject);
+        
     }
 
     public bool isTriggered()
